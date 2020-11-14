@@ -2,14 +2,14 @@ import argparse
 import source.gcc as gcc
 import source.nginx as nginx
 
-import utils.timer as timer_main
+import utils.timer as timer
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="GCCBench v1.0")
     parser.add_argument('-n', '--name', default='gcc')
     args = parser.parse_args()
 
-    timer_main = timer_main.timer()
+    timer_main = timer.timer()
 
     if 'gcc' in args.name:
         timer_main.timer_start()
