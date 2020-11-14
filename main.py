@@ -42,7 +42,9 @@ if __name__ == '__main__':
         "GCCBench V1.0\n\nTime: [{}]\n\nStarting Prepare Code".format(get_time()))
     core_count = prepare_code()
     build_start = get_time()
-    print("Start Build Time: [{}], Thread: [{}]".format(build_start, core_count))
+    print("Start Build Time: [{}], Thread: {}".format(build_start, core_count))
     command_runner('make -C nginx-1.19.4/ -j{}'.format(core_count))
     end_time = get_time()
     print("End Build Time: [{}]".format(end_time))
+    print("Summary: \n\t Build with [{}] thread\n\t Start time: {} \n\t End time: {}".format(core_count, build_start, end_time)
+    
