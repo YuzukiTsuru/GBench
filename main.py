@@ -24,8 +24,13 @@ def command_runner(shell_cmd: str):
         print('Subprogram failed')
         return -1
 
+    
+def prepare_code_gcc():
+    os.system('sudo apt install -y build-essential libgmp-dev libmpfr-dev libmpc-dev')
+    os.system('wget https://mirrors.aliyun.com/gnu/gcc/gcc-9.3.0/gcc-9.3.0.tar.gz')
+    
 
-def prepare_code():
+def prepare_code_nginx():
     os.system(
         'sudo apt install -y libtool build-essential libpcre3 libpcre3-dev zlib1g-dev openssl wget')
     os.system(
