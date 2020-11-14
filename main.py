@@ -26,7 +26,7 @@ def command_runner(shell_cmd: str):
 
 
 def prepare_code():
-    os.system('sudo apt install libgmp-dev libmpfr-dev libmpc-dev build-essential')
+    os.system('sudo apt install -y libgmp-dev libmpfr-dev libmpc-dev build-essential')
     os.system(
         'git clone https://mirrors.bfsu.edu.cn/git/gcc.git' +
         '&& cd gcc ' +
