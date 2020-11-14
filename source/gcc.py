@@ -13,11 +13,12 @@ class gcc:
     def prepare_code(self):
         command_runner('sudo apt install -y build-essential libgmp-dev libmpfr-dev libmpc-dev')
         if not os.path.exists('{}.tar.gz'.format(self.package_name)) or not os.path.exists(self.package_name):
-            command_runner('wget https://mirrors.aliyun.com/gnu/gcc/gcc-9.3.0/{}.tar.gz'.format(self.package_name), DOWNLOAD)
+            command_runner('wget https://mirrors.aliyun.com/gnu/gcc/{}/{}.tar.gz'.format(self.package_name, self.package_name), DOWNLOAD)
             command_runner('tar xvzf {}.tar.gz'.format(self.package_name), DECOMPRESS)
         command_runner('./{}/configure'.format(self.package_name), CONFIGURE)
 
     def build_code(self):
+        command_runner('make clean', CLEAN)
         command_runner('make -j{}'.format(self.core_num), BUILD, thread_num=self.core_num)
 
     def get_core_count(self) -> int:
