@@ -20,4 +20,4 @@ if __name__ == '__main__':
         nginx_build.build_code()
         timer_main.timer_end()
     else:
-        raise 'The test of {} is not yet supported'.format(args.name)
+        raise 'The test of {} is not supported yet'.format(args.name)
