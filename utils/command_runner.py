@@ -16,7 +16,7 @@ def command_runner(shell_cmd: str, stage=PROCESS, thread_num=0) -> int:
             if thread_num is 0:
                 print('{} | {} |: [{}]\r'.format(get_time(), stage, line))
             else:
-                print('{} | {} | {} |: [{}]\r'.format(get_time(), stage, thread_num, line))
+                print('{} | {} | {} |: [{}]\r'.format(get_time(), stage, add_colior_thread(thread_num), line))
     if p.returncode is 0:
         print(SUCCESS)
         return 0
