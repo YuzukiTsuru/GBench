@@ -17,4 +17,4 @@ class gcc:
         command_runner('./{}/configure'.format(self.package_name), flush=True)
 
     def build_code(self):
-        command_runner('make -C {}/ -j{}'.format(self.package_name, self.core_num))
+        command_runner('make -C {}/ -j{}'.format(self.package_name, self.core_num), flush=True)
