@@ -7,7 +7,7 @@ from utils.color_static import *
 
 def command_runner(shell_cmd: str, stage=PROCESS, thread_num=0, cwd_dir=None) -> int:
     cmd = shlex.split(shell_cmd)
-    if cwd_dir is None:
+    if cwd_dir is not None:
         p = subprocess.Popen(cmd, shell=False, cwd=cwd_dir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     else:
         p = subprocess.Popen(cmd, shell=False, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
