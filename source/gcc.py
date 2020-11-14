@@ -13,7 +13,7 @@ class gcc:
         os.system('sudo apt install -y build-essential libgmp-dev libmpfr-dev libmpc-dev')
         if not os.path.exists('{}.tar.gz'.format(self.package_name)):
             os.system('wget http://nginx.org/download/{}.tar.gz'.format(self.package_name))
-        os.system('tar xvzf {}.tar.gz'.format(self.package_name))
+            os.system('tar xvzf {}.tar.gz'.format(self.package_name))
         os.system('cd {} && ./configure'.format(self.package_name))
 
     def build_code(self):
