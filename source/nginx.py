@@ -15,7 +15,8 @@ class nginx:
         if not os.path.exists('{}.tar.gz'.format(self.package_name)) or not os.path.exists(self.package_name):
             command_runner('wget http://nginx.org/download/{}.tar.gz'.format(self.package_name), DOWNLOAD)
             command_runner('tar xvzf {}.tar.gz'.format(self.package_name), DECOMPRESS)
-        command_runner('cd {}/ && ./configure'.format(self.package_name, self.package_name), CONFIGURE)
+        # TODO: cd command_runner
+        os.system('cd {}/ && ./configure'.format(self.package_name, self.package_name))
 
     def build_code(self):
         command_runner('make clean', CLEAN)
