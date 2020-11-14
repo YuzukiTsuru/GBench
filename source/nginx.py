@@ -18,7 +18,7 @@ class nginx:
         command_runner('./{}/configure'.format(self.package_name), CONFIGURE)
 
     def build_code(self):
-        command_runner('make -C {}/ -j{}'.format(self.package_name, self.core_num), BUILD)
+        command_runner('make -j{}'.format(self.core_num), BUILD)
 
     def get_core_count(self) -> int:
         return self.core_num
