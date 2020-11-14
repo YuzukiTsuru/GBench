@@ -12,7 +12,7 @@ class gcc:
     def prepare_code(self):
         os.system('sudo apt install -y build-essential libgmp-dev libmpfr-dev libmpc-dev')
         if not os.path.exists('{}.tar.gz'.format(self.package_name)):
-            os.system('wget http://nginx.org/download/{}.tar.gz'.format(self.package_name))
+            os.system('wget https://mirrors.aliyun.com/gnu/gcc/gcc-9.3.0/{}.tar.gz'.format(self.package_name))
             os.system('tar xvzf {}.tar.gz'.format(self.package_name))
         os.system('cd {} && ./configure'.format(self.package_name))
 
