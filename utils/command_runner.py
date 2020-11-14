@@ -15,8 +15,8 @@ def command_runner(shell_cmd: str, stage=PROCESS) -> int:
         if line:
             print('{} | {} |: [{}]\r'.format(get_time(), stage, line))
     if p.returncode is 0:
-        print('Subprogram success')
+        print(SUCCESS)
         return 0
     else:
-        print('Subprogram failed')
+        print(FAIL)
         return -1
