@@ -11,7 +11,7 @@ class nginx:
         self.prepare_code()
 
     def prepare_code(self):
-        command_runner('sudo apt install -y libtool build-essential libpcre3 libpcre3-dev zlib1g-dev openssl wget')
+        command_runner('sudo apt-get install -y libtool build-essential libpcre3 libpcre3-dev zlib1g-dev openssl wget')
         if not os.path.exists('{}.tar.gz'.format(self.package_name)) or not os.path.exists(self.package_name):
             command_runner('wget http://nginx.org/download/{}.tar.gz'.format(self.package_name), DOWNLOAD)
             command_runner('tar xvzf {}.tar.gz'.format(self.package_name), DECOMPRESS)
