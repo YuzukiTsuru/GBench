@@ -26,7 +26,6 @@ def command_runner(shell_cmd: str, flush=False) -> int:
                 i += 1
             else:
                 print('{}: [{}]'.format(get_time(), line))
-            os.system('echo "{}" >> GCCBench_{}.log'.format(line, log_time))
     if p.returncode is 0:
         print('Subprogram success')
         return 0
