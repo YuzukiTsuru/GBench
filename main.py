@@ -32,7 +32,7 @@ def prepare_code():
         'git clone https://mirrors.bfsu.edu.cn/git/gcc.git' +
         '&& cd gcc ' +
         '&& chmod 777 configure ' +
-        '&& ./configure --enable-checking=release --enable-languages=c,c++ --disable-multilib')
+        '&& ./configure')
     return os.popen('grep -c ^processor /proc/cpuinfo 2>/dev/null').read()
 
 
