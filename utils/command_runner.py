@@ -4,7 +4,7 @@ import subprocess
 from .get_time import get_time
 
 
-def command_runner(shell_cmd: str, stage: str) -> int:
+def command_runner(shell_cmd: str, stage=' ') -> int:
     cmd = shlex.split(shell_cmd)
     p = subprocess.Popen(cmd, shell=False, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     # Main stdout
