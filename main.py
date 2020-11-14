@@ -14,8 +14,11 @@ def command_runner(shell_cmd: str):
         cmd, shell=False, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     while p.poll() is None:
         line = p.stdout.readline()
-        line = line.strip()
+        line = str(line.strip())
         if line:
+            if len(line) > 50:
+                line = line[:50] + '...'
+                
             print('{}: [{}]'.format(get_time(), line))
     if p.returncode is 0:
         print('Subprogram success')
@@ -42,6 +45,6 @@ if __name__ == '__main__':
     core_count = prepare_code()
     build_start = get_time()
     print("Start Build Time: [{}]".format(build_start))
-    command_runner('make -j{}'.format(core_count))
+    command_runner('make -C gcc -j{}'.format(core_count))
     end_time = get_time()
     print("End Build Time: [{}]".format(end_time))
