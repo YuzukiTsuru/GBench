@@ -15,8 +15,7 @@ class gcc:
         os.system('wget https://mirrors.aliyun.com/gnu/gcc/{}/{}.tar.gz'.format(
             self.package_name, self.package_name))
         os.system('tar xvzf {}.tar.gz'.format(self.package_name))
-        os.system('cd {}'.format(self.package_name))
-        os.system('./configure')
+        os.system('cd {} && ./configure'.format(self.package_name))
 
     def build_code(self):
         command_runner(

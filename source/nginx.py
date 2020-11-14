@@ -15,8 +15,7 @@ class nginx:
         os.system(
             'wget http://nginx.org/download/{}.tar.gz'.format(self.package_name))
         os.system('tar xvzf {}.tar.gz'.format(self.package_name))
-        os.system('cd {}'.format(self.package_name))
-        os.system('./configure')
+        os.system('cd {} && ./configure'.format(self.package_name))
 
     def build_code(self):
         command_runner(
