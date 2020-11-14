@@ -19,18 +19,14 @@ def command_runner(shell_cmd: str, flush=False) -> int:
     while p.poll() is None:
         line = p.stdout.readline()
         line = str(line.strip())[2:len(line) + 1]
-
         if line:
-
             if flush:
                 sys.stdout.write(strarrs[i % 3] + '{}: [{}]\r'.format(get_time(), line))
                 sys.stdout.flush()
                 i += 1
             else:
                 print('{}: [{}]'.format(get_time(), line))
-
             os.system('echo "{}" >> GCCBench_{}.log'.format(line, log_time))
-
     if p.returncode is 0:
         print('Subprogram success')
         return 0
