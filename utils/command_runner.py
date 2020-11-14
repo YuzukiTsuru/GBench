@@ -1,6 +1,4 @@
-import time
 import shlex
-import os
 import sys
 import subprocess
 
@@ -8,7 +6,6 @@ from .get_time import get_time
 
 
 def command_runner(shell_cmd: str, flush=False) -> int:
-    log_time = time.time()
     cmd = shlex.split(shell_cmd)
     p = subprocess.Popen(cmd, shell=False, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
@@ -21,7 +18,8 @@ def command_runner(shell_cmd: str, flush=False) -> int:
         line = str(line.strip())[2:len(line) + 1]
         if line:
             if flush:
-                sys.stdout.write(strarrs[i % 3] + '{}: [{}]\r'.format(get_time(), line))
+                sys.stdout.write(strarrs[i % 3] + ' {}: [{}]\r'.format(get_time(), line))
+                sys.stdout.write('')
                 sys.stdout.flush()
                 i += 1
             else:
