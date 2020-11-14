@@ -11,9 +11,9 @@ def command_runner(shell_cmd: str) -> int:
     # Main stdout
     while p.poll() is None:
         line = p.stdout.readline()
-        line = str(line.strip())[2:len(line) + 1]
+        line = str(line.strip())[2:len(line)]
         if line:
-            print('{}: [{}]'.format(get_time(), line))
+            print('{}: [{}]\r'.format(get_time(), line))
     if p.returncode is 0:
         print('Subprogram success')
         return 0
