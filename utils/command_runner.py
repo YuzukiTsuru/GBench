@@ -11,7 +11,7 @@ def command_runner(shell_cmd: str, stage=PROCESS) -> int:
     # Main stdout
     while p.poll() is None:
         line = p.stdout.readline()
-        line = str(line.strip())[2:len(line)]
+        line = str(line.strip(), encoding="utf-8")
         if line:
             print('{} | {} |: [{}]\r'.format(get_time(), stage, line))
     if p.returncode is 0:
