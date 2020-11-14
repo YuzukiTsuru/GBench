@@ -11,7 +11,7 @@ class gcc:
 
     def prepare_code(self):
         command_runner('sudo apt install -y build-essential libgmp-dev libmpfr-dev libmpc-dev')
-        if not os.path.exists('{}.tar.gz'.format(self.package_name)):
+        if not os.path.exists('{}.tar.gz'.format(self.package_name)) or not os.path.exists(self.package_name):
             command_runner('wget https://mirrors.aliyun.com/gnu/gcc/gcc-9.3.0/{}.tar.gz'.format(self.package_name))
             command_runner('tar xvzf {}.tar.gz'.format(self.package_name))
         command_runner('./{}/configure'.format(self.package_name))
