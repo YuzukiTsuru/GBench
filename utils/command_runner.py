@@ -12,7 +12,7 @@ def command_runner(shell_cmd: str) -> int:
         cmd, shell=False, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     while p.poll() is None:
         line = p.stdout.readline()
-        line = str(line.strip())[2:len(line) - 1]
+        line = str(line.strip())[2:len(line)]
         if line:
             print('{}: [{}]'.format(get_time(), line))
             os.system('echo {} >> GCCBench_{}.log'.format(line, time.time()))
