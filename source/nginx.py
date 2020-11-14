@@ -10,13 +10,11 @@ class nginx:
         self.prepare_code()
 
     def prepare_code(self):
-        os.system(
-            'sudo apt install -y libtool build-essential libpcre3 libpcre3-dev zlib1g-dev openssl wget')
-        os.system(
-            'wget http://nginx.org/download/{}.tar.gz'.format(self.package_name))
+        os.system('sudo apt install -y libtool build-essential libpcre3 libpcre3-dev zlib1g-dev openssl wget')
+        if not os.path.exists('{}.tar.gz'.format(self.package_name)):
+            os.system('wget http://nginx.org/download/{}.tar.gz'.format(self.package_name))
         os.system('tar xvzf {}.tar.gz'.format(self.package_name))
         os.system('cd {} && ./configure'.format(self.package_name))
 
     def build_code(self):
-        command_runner(
-            'make -C {}/ -j{}'.format(self.package_name, self.core_num))
+        command_runner('make -C {}/ -j{}'.format(self.package_name, self.core_num))
