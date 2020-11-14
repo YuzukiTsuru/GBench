@@ -18,7 +18,8 @@ def command_runner(shell_cmd: str, flush=False) -> int:
         line = str(line.strip())[2:len(line) + 1]
         if line:
             if flush:
-                sys.stdout.write('\r' + strarrs[i % 3] + ' {}: [{}]\r'.format(get_time(), line))
+                sys.stdout.write(strarrs[i % 3] + ' {}: [{}]\r'.format(get_time(), line))
+                sys.stdout.write('                                                                                         ')
                 sys.stdout.flush()
                 i += 1
             else:
