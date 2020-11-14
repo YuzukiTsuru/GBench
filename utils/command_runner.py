@@ -5,9 +5,12 @@ from .get_time import get_time
 from utils.color_static import *
 
 
-def command_runner(shell_cmd: str, stage=PROCESS, thread_num=0) -> int:
+def command_runner(shell_cmd: str, stage=PROCESS, thread_num=0, cwd_dir=None) -> int:
     cmd = shlex.split(shell_cmd)
-    p = subprocess.Popen(cmd, shell=False, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    if cwd_dir:
+        p = subprocess.Popen(cmd, shell=False, cwd=cwd_dir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    else:
+        p = subprocess.Popen(cmd, shell=False, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     # Main stdout
     while p.poll() is None:
         line = p.stdout.readline()
