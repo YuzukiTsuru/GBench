@@ -5,7 +5,7 @@ import subprocess
 from .get_time import get_time
 
 
-def command_runner(shell_cmd: str, flush=False) -> int:
+def command_runner(shell_cmd: str) -> int:
     cmd = shlex.split(shell_cmd)
     p = subprocess.Popen(cmd, shell=False, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     # Main stdout
@@ -13,12 +13,7 @@ def command_runner(shell_cmd: str, flush=False) -> int:
         line = p.stdout.readline()
         line = str(line.strip())[2:len(line) + 1]
         if line:
-            if flush:
-                sys.stdout.write(' {}: [{}]\r'.format(get_time(), line))
-                sys.stdout.write('                                                                                         \r')
-                sys.stdout.flush()
-            else:
-                print('{}: [{}]'.format(get_time(), line))
+            print('{}: [{}]'.format(get_time(), line))
     if p.returncode is 0:
         print('Subprogram success')
         return 0
