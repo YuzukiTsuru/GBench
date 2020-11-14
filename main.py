@@ -26,7 +26,8 @@ def command_runner(shell_cmd: str):
 
 
 def prepare_code():
-    os.system('sudo apt install -y libgmp-dev libmpfr-dev libmpc-dev build-essential')
+    os.system(
+        'sudo apt install -y libgmp-dev libmpfr-dev libmpc-dev build-essential')
     os.system(
         'git clone https://mirrors.bfsu.edu.cn/git/gcc.git' +
         '&& cd gcc ' +
@@ -42,3 +43,5 @@ if __name__ == '__main__':
     build_start = get_time()
     print("Start Build Time: [{}]".format(build_start))
     command_runner('make -j{}'.format(core_count))
+    end_time = get_time()
+    print("End Build Time: [{}]".format(end_time))
