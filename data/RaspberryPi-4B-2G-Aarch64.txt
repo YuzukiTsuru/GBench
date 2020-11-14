@@ -1,4 +1,6 @@
+Raspberry Pi OS 
 Release date: August 20th 2020
 Kernel version: 5.4
 Size: 1,127MB
+Linux raspberrypi 5.4.51-v8+ #1333 SMP PREEMPT Mon Aug 10 16:58:35 BST 2020 aarch64
 
