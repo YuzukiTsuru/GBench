@@ -46,5 +46,5 @@ if __name__ == '__main__':
     command_runner('make -C nginx-1.19.4/ -j{}'.format(core_count))
     end_time = get_time()
     print("End Build Time: [{}]".format(end_time))
-    print("Summary: \n\t Build with [{}] thread\n\t Start time: {} \n\t End time: {}".format(core_count, build_start, end_time)
+    print("Summary: \n\t Build with [{}] thread\n\t Start time: {} \n\t End time: {}".format(core_count, build_start, end_time))
     
