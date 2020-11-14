@@ -17,3 +17,7 @@ FAIL = Fore.LIGHTYELLOW_EX + "\n\nSubprogram Fail\n\n" + Fore.WHITE
 
 def add_colior_thread(num: int) -> str:
     return Fore.LIGHTGREEN_EX + 'Compile Thread: ' + str(num) + Fore.WHITE
+
+
+def add_color_time(time_str: str) -> str:
+    return Fore.LIGHTCYAN_EX + time_str + Fore.WHITE
