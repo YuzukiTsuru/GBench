@@ -2,9 +2,10 @@ import shlex
 import subprocess
 
 from .get_time import get_time
+from utils.color_static import *
 
 
-def command_runner(shell_cmd: str, stage=' ') -> int:
+def command_runner(shell_cmd: str, stage=PROCESS) -> int:
     cmd = shlex.split(shell_cmd)
     p = subprocess.Popen(cmd, shell=False, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     # Main stdout
