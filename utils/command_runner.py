@@ -16,7 +16,7 @@ def command_runner(shell_cmd: str) -> int:
         line = str(line.strip())[2:len(line) + 1]
         if line:
             print('{}: [{}]'.format(get_time(), line))
-            os.system('echo "{}" >> log/GCCBench_{}.log'.format(line, log_time))
+            os.system('echo "{}" >> GCCBench_{}.log'.format(line, log_time))
     if p.returncode is 0:
         print('Subprogram success')
         return 0
