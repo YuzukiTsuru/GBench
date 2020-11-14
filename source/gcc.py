@@ -19,3 +19,6 @@ class gcc:
 
     def build_code(self):
         command_runner('make -C {}/ -j{}'.format(self.package_name, self.core_num), (Fore.YELLOW + "Build"))
+
+    def get_core_count(self) -> int:
+        return self.core_num
