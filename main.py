@@ -3,7 +3,7 @@ import source
 import utils
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="GCCBench v1.0")
+    parser = argparse.ArgumentParser(description="GBench v1.0")
     parser.add_argument('-n', '--name', default='gcc')
     args = parser.parse_args()
 
