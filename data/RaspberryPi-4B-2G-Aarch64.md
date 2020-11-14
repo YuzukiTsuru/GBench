@@ -18,3 +18,10 @@ RaspberryPi 4B 2G
     SanDisk Ultra Class10 A1 MicroSDHC Card 16G
 ```
 
+#### Nginx
+```
+Summary: 
+	 Build with [4] thread
+	 Start time: 2020-11-14 08:57:43 
+	 End time: 2020-11-14 08:58:06
+```
