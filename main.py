@@ -27,10 +27,11 @@ def command_runner(shell_cmd: str):
 
 def prepare_code():
     os.system(
-        'sudo apt install -y libgmp-dev libmpfr-dev libmpc-dev build-essential')
+        'sudo apt install -y libtool build-essential libpcre3 libpcre3-dev zlib1g-dev openssl wget')
     os.system(
-        'git clone https://mirrors.bfsu.edu.cn/git/gcc.git' +
-        '&& cd gcc ' +
+        'wget http://nginx.org/download/nginx-1.19.4.tar.gz' +
+        '&& tar xvzf nginx-1.19.4.tar.gz'
+        '&& cd nginx-1.19.4 ' +
         '&& chmod 777 configure ' +
         '&& ./configure')
     return os.popen('grep -c ^processor /proc/cpuinfo 2>/dev/null').read()
@@ -42,6 +43,6 @@ if __name__ == '__main__':
     core_count = prepare_code()
     build_start = get_time()
     print("Start Build Time: [{}], Thread: [{}]".format(build_start, core_count))
-    command_runner('make -C gcc/ -j{}'.format(core_count))
+    command_runner('make -C nginx-1.19.4/ -j{}'.format(core_count))
     end_time = get_time()
     print("End Build Time: [{}]".format(end_time))
