@@ -14,11 +14,8 @@ def command_runner(shell_cmd: str):
         cmd, shell=False, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     while p.poll() is None:
         line = p.stdout.readline()
-        line = str(line.strip())
+        line = str(line.strip())[2:]
         if line:
-            if len(line) > 50:
-                line = line[:50] + '...'
-                
             print('{}: [{}]'.format(get_time(), line))
     if p.returncode is 0:
         print('Subprogram success')
