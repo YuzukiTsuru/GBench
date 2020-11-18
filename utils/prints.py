@@ -9,7 +9,7 @@ def color_thread_stdout(color_thread_str: str, print_str: str) -> str:
 
 class Prints:
     def __init__(self, stage):
-        self.tqdm = tqdm(bar_format='{postfix[0]} | {postfix[1]} | {postfix[2]}', postfix=['', stage, ''])
+        self.tqdm = tqdm(bar_format='{postfix[0]} | {postfix[1]} | {postfix[2]}', postfix=[None, stage, None])
 
     def prints(self, print_str: str, color_thread=None):
         if color_thread is None:

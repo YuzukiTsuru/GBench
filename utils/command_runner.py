@@ -22,8 +22,8 @@ def command_runner(shell_cmd: str, stage=PROCESS, thread_num=0, cwd_dir=None) ->
             else:
                 prints.prints(print_str=line, color_thread=add_colior_thread(thread_num))
     if p.returncode is 0:
-        print(SUCCESS)
+        prints.new_prints(SUCCESS)
         return 0
     else:
-        print(FAIL)
+        prints.new_prints(FAIL)
         return -1
