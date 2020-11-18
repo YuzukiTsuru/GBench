@@ -4,11 +4,12 @@ class Score:
         self.end_time = end_time_stamp
         self.time_diff_str = None
         self.build_type = build_type
-        self.decode_time()
+        print(self.decode_time())
+
         self.print_socre()
 
     def print_socre(self):
-        print('\n\nIt took {} time to compile and build {}'.format(self.time_diff_str, self.build_type))
+        print('\n\nIt took {} to compile and build {}'.format(self.time_diff_str, self.build_type))
 
     def decode_time(self):
         in_day = self.end_time - self.start_time
