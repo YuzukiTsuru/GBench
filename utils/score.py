@@ -19,5 +19,5 @@ class Score:
         min_ = in_min_ / 60
         in_sec = min_ % 60
         sec = in_sec % 60
-        self.time_diff_str = '{:d} Day, {:d} Hours, {:d} Minutes, {:d} Second'.format(day, hour, min_, sec)
+        self.time_diff_str = '{:d} Day, {:d} Hours, {:d} Minutes, {:d} Second'.format(int(day), int(hour), int(min_), int(sec))
         return day, hour, min_, sec
