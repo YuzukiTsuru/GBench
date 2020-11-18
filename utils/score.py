@@ -11,7 +11,7 @@ class Score:
         print('\n\nIt took {} time to compile and build {}'.format(self.time_diff_str, self.build_type))
 
     def decode_time(self):
-        in_day = self.start_time - self.end_time
+        in_day = self.end_time - self.start_time
         day = in_day / 86400
         in_hour = in_day % 86400
         hour = in_hour / 3600
@@ -19,5 +19,5 @@ class Score:
         min_ = in_min_ / 60
         in_sec = min_ % 60
         sec = in_sec % 60
-        self.time_diff_str = '{} Day, {} Hours, {} Minutes, {} Second'.format(day, hour, min_, sec)
+        self.time_diff_str = '{:d} Day, {:d} Hours, {:d} Minutes, {:d} Second'.format(day, hour, min_, sec)
         return day, hour, min_, sec
