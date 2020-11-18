@@ -13,12 +13,12 @@ class Score:
 
     def decode_time(self):
         in_day = self.end_time - self.start_time
-        day = in_day / 86400
+        day = int(in_day / 86400)
         in_hour = in_day % 86400
-        hour = in_hour / 3600
+        hour = int(in_hour / 3600)
         in_min_ = in_hour % 3600
-        min_ = in_min_ / 60
+        min_ = int(in_min_ / 60)
         in_sec = min_ % 60
-        sec = in_sec % 60
-        self.time_diff_str = '{:d} Day, {:d} Hours, {:d} Minutes, {:d} Second'.format(int(day), int(hour), int(min_), int(sec))
+        sec = int(in_sec / 60)
+        self.time_diff_str = '{:d} Day, {:d} Hours, {:d} Minutes, {:d} Second'.format(day, hour, min_, sec)
         return day, hour, min_, sec
