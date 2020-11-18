@@ -14,11 +14,11 @@ class Prints:
     def prints(self, print_str: str, color_thread=None):
         if color_thread is None:
             self.tqdm.postfix[0] = get_time()
-            self.tqdm.postfix[1] = print_str
+            self.tqdm.postfix[2] = print_str
             self.tqdm.update()
         else:
             self.tqdm.postfix[0] = get_time()
-            self.tqdm.postfix[1] = color_thread_stdout(color_thread, print_str)
+            self.tqdm.postfix[2] = color_thread_stdout(color_thread, print_str)
             self.tqdm.update()
 
     def new_prints(self, print_str: str):
