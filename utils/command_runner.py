@@ -17,11 +17,11 @@ def command_runner(shell_cmd: str, stage=PROCESS, thread_num=0, cwd_dir=None) ->
         line = p.stdout.readline()
         line = str(line.strip(), encoding="utf-8")
         if line:
-            if thread_num is 0:
+            if thread_num == 0:
                 prints.prints(print_str=line)
             else:
                 prints.prints(print_str=line, color_thread=add_colior_thread(thread_num))
-    if p.returncode is 0:
+    if p.returncode == 0:
         prints.new_prints(SUCCESS)
         return 0
     else:
