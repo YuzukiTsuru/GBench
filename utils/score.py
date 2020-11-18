@@ -1,5 +1,3 @@
-# TODO: Score Display
-
 class Score:
     def __init__(self, start_time_stamp: int, end_time_stamp: int, build_type: str):
         self.start_time = start_time_stamp
