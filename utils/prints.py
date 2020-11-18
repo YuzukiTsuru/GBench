@@ -1,13 +1,28 @@
-import os
-
-from tqdm import tqdm
-
 from .get_time import get_time
 
 
 def color_thread_stdout(color_thread_str: str, print_str: str) -> str:
     return '{} | [{}]'.format(color_thread_str, print_str)
 
+
+class Prints:
+    def __init__(self, stage):
+        self.stage = stage
+
+    def prints(self, print_str: str, color_thread=None):
+        if color_thread is None:
+            print('{} | {} | {}'.format(get_time(), self.stage, print_str))
+        else:
+            print('{} | {} | {}'.format(get_time(), self.stage, color_thread_stdout(color_thread, print_str)))
+
+    def new_prints(self, print_str: str):
+        print('{} | {} | {}'.format(get_time(), self.stage, print_str))
+
+
+"""
+import os
+
+from tqdm import tqdm
 
 class Prints:
     def __init__(self, stage):
@@ -35,3 +50,4 @@ class Prints:
 
     def __del__(self):
         os.system('echo -e "\\033[?25h"')
+"""
