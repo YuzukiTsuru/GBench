@@ -25,4 +25,5 @@ class Prints:
     def new_prints(self, print_str: str):
         self.tqdm.postfix[0] = get_time()
         self.tqdm.postfix[1] = print_str
+        self.tqdm.postfix[2] = '\n'
         self.tqdm.update()
