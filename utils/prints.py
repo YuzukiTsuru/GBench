@@ -1,3 +1,5 @@
+import os
+
 from tqdm import tqdm
 
 from .get_time import get_time
@@ -10,6 +12,7 @@ def color_thread_stdout(color_thread_str: str, print_str: str) -> str:
 class Prints:
     def __init__(self, stage):
         self.tqdm = tqdm(bar_format='{postfix[0]} | {postfix[1]} | {postfix[2]}', postfix=[None, stage, None])
+        os.system('echo -e "\\033[?25l"')
 
     def prints(self, print_str: str, color_thread=None):
         if color_thread is None:
@@ -26,3 +29,6 @@ class Prints:
         self.tqdm.postfix[1] = print_str
         self.tqdm.postfix[2] = '\n'
         self.tqdm.update()
+
+    def __del__(self):
+        os.system('echo -e "\\033[?25h"')
