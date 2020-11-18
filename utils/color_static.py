@@ -11,8 +11,8 @@ PROCESS = Fore.RED + 'Processing' + Fore.WHITE
 
 DEFAULT = Fore.WHITE
 
-SUCCESS = Fore.LIGHTYELLOW_EX + "\n\nSubprogram Success\n\n" + Fore.WHITE
-FAIL = Fore.LIGHTYELLOW_EX + "\n\nSubprogram Fail\n\n" + Fore.WHITE
+SUCCESS = Fore.LIGHTYELLOW_EX + "Subprogram Success" + Fore.WHITE
+FAIL = Fore.LIGHTRED_EX + "Subprogram Fail" + Fore.WHITE
 
 
 def add_colior_thread(num: int) -> str:
