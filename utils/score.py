@@ -4,6 +4,7 @@ class Score:
         self.end_time = end_time_stamp
         self.time_diff_str = None
         self.build_type = build_type
+        self.decode_time()
         self.print_socre()
 
     def print_socre(self):

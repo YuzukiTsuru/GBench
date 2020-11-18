@@ -18,7 +18,6 @@ class nginx:
         command_runner('./configure', CONFIGURE, cwd_dir=self.package_name)
 
     def build_code(self):
-        command_runner('make clean', CLEAN)
         command_runner('make -C {}/ -j{}'.format(self.package_name, self.core_num), BUILD, thread_num=self.core_num)
 
     def get_core_count(self) -> int:
