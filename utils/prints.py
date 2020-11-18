@@ -11,7 +11,8 @@ def color_thread_stdout(color_thread_str: str, print_str: str) -> str:
 
 class Prints:
     def __init__(self, stage):
-        self.tqdm = tqdm(bar_format='{postfix[0]} | {postfix[1]} | {postfix[2]}', postfix=[None, stage, None])
+        self.stage = stage
+        self.tqdm = tqdm(bar_format='{postfix[0]} | {postfix[1]} | {postfix[2]}', postfix=[get_time(), stage, get_time()])
         os.system('echo -e "\\033[?25l"')
 
     def prints(self, print_str: str, color_thread=None):
@@ -25,6 +26,8 @@ class Prints:
             self.tqdm.update()
 
     def new_prints(self, print_str: str):
+        del self.tqdm
+        self.tqdm = tqdm(bar_format='{postfix[0]} | {postfix[1]} | {postfix[2]}', postfix=[get_time(), self.stage, get_time()])
         self.tqdm.postfix[0] = get_time()
         self.tqdm.postfix[1] = print_str
         self.tqdm.postfix[2] = '\n'
