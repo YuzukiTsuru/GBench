@@ -1,11 +1,12 @@
 import shlex
 import subprocess
 
-from .get_time import get_time
 from utils.color_static import *
+from .prints import *
 
 
 def command_runner(shell_cmd: str, stage=PROCESS, thread_num=0, cwd_dir=None) -> int:
+    prints = Prints(stage)
     cmd = shlex.split(shell_cmd)
     if cwd_dir is not None:
         p = subprocess.Popen(cmd, shell=False, cwd=cwd_dir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -17,9 +18,9 @@ def command_runner(shell_cmd: str, stage=PROCESS, thread_num=0, cwd_dir=None) ->
         line = str(line.strip(), encoding="utf-8")
         if line:
             if thread_num is 0:
-                print('{} | {} |: [{}]\r'.format(get_time(), stage, line))
+                prints.prints(print_str=line)
             else:
-                print('{} | {} | {} |: [{}]\r'.format(get_time(), stage, add_colior_thread(thread_num), line))
+                prints.prints(print_str=line, color_thread=add_colior_thread(thread_num))
     if p.returncode is 0:
         print(SUCCESS)
         return 0
