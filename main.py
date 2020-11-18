@@ -21,3 +21,5 @@ if __name__ == '__main__':
         timer_main.timer_end()
     else:
         raise 'The test of {} is not supported yet'.format(args.name)
+
+    score = utils.Score(timer_main.start_timestamp, timer_main.end_timestamp, args.name)
