@@ -15,7 +15,7 @@ class gcc:
         if not os.path.exists('{}.tar.gz'.format(self.package_name)) or not os.path.exists(self.package_name):
             command_runner('wget https://mirrors.aliyun.com/gnu/gcc/{}/{}.tar.gz'.format(self.package_name, self.package_name), DOWNLOAD)
             command_runner('tar xvzf {}.tar.gz'.format(self.package_name), DECOMPRESS)
-        command_runner('./configure', CONFIGURE, cwd_dir=self.package_name)
+        command_runner('./configure --disable-multilib', CONFIGURE, cwd_dir=self.package_name)
 
     def build_code(self):
         command_runner('make clean', CLEAN, cwd_dir=self.package_name)
